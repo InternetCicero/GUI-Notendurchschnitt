@@ -1,0 +1,100 @@
+from tkinter import *
+import tkinter as tk
+import keyboard
+from pynput import keyboard
+
+#Fenster erstellung
+fenster = tk.Tk()
+fenster.title("GUI")
+entry=tk.Entry(fenster)
+
+#Definierung der Label
+Deutsch_label = Label(fenster, text="Deutsch: ")
+Mathe_label = Label(fenster, text="Mathe: ")
+Bio_label = Label(fenster, text="Bio: ")
+Chemie_label = Label(fenster, text="Chemie: ")
+Geschichte_label = Label(fenster, text="Geschichte: ")
+Russisch_label = Label(fenster, text="Russisch: ")
+Physik_label = Label(fenster, text="Physik: ")
+Geo_label = Label(fenster, text="Geo: ")
+
+Durchschnitt_label = Label(fenster, text="Durchschnitt: ")
+
+#Definierung Eingabefeld
+Deutsch = Entry(fenster, bd=5, width=5)
+Mathe = Entry(fenster, bd=5, width=5)
+Bio = Entry(fenster, bd=5, width=5)
+Chemie = Entry(fenster, bd=5, width=5)
+Geschichte = Entry(fenster, bd=5, width=5)
+Russisch = Entry(fenster, bd=5, width=5)
+Physik = Entry(fenster, bd=5, width=5)
+Geo = Entry(fenster, bd=5, width=5)
+
+def D_retrieve_input():
+    input = Deutsch.get()
+    return input
+
+#Mathe input Funktion
+def M_retrieve_input():
+    input = Mathe.get()
+    return input
+
+#Bio Input Funktion
+def B_retrieve_input():
+    input = Bio.get()
+    return input
+
+def C_retrieve_input():
+    input = Chemie.get()
+    return input
+
+def G_retrieve_input():
+    input = Geschichte.get()
+    return input
+
+def R_retriebe_input():
+    input = Russisch.get()
+    return input
+
+def P_retrieve_input():
+    input = Physik.get()
+    return input
+
+def Geo_retrieve_input():
+    input = Geo.get()
+    return input
+
+#Methode um Content zu hohlen
+def getEntry():
+    button_action()
+
+#Methode um den label zu ändern
+def button_action():
+    zahl = (int(D_retrieve_input()[0]) + int(M_retrieve_input()[0]) +int(B_retrieve_input()[0]) +int(C_retrieve_input()[0]) +int(G_retrieve_input()[0]) +int(R_retriebe_input()[0]) +int(P_retrieve_input()[0]) +int(Geo_retrieve_input()[0]))/8
+    Durchschnitt_label.config(text="Durchschnitt: "+ str(zahl))
+
+change_button = Button(fenster, text="Ändern", command=getEntry)
+
+#Komponenten Hinzufügen
+Deutsch_label.grid(row=0, column=0)
+Mathe_label.grid(row = 1, column = 0)
+Bio_label.grid(row = 2, column = 0)
+Chemie_label.grid(row = 3, column = 0)
+Geschichte_label.grid(row = 4, column = 0)
+Russisch_label.grid(row = 5, column = 0)
+Physik_label.grid(row = 6, column = 0)
+Geo_label.grid(row = 7, column = 0)
+Durchschnitt_label.grid(row = 10,column = 0)
+
+change_button.grid(row = 0, column = 10)
+
+Deutsch.grid(row = 0, column = 4)
+Mathe.grid(row = 1, column = 4)
+Bio.grid(row = 2, column = 4)
+Chemie.grid(row = 3, column = 4)
+Geschichte.grid(row = 4, column = 4)
+Russisch.grid(row = 5, column = 4)
+Physik.grid(row = 6, column = 4)
+Geo.grid(row = 7, column = 4)
+
+mainloop()
